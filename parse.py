@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from progress.bar import FillingCirclesBar
 from progress.counter import Counter
 
-from config import BASE_DIR, BASE_URL, PAGES, SLEEP_TIME, URL
+from config import OUTPUT_DATA_DIR, BASE_URL, PAGES, SLEEP_TIME, URL
 
 articles = []
 bar = Counter("Обработка страницы ", max=len(PAGES))
@@ -42,4 +42,4 @@ for page in PAGES:
 bar.finish()
 
 df = pandas.DataFrame(articles)
-df.to_excel(BASE_DIR + "/data/e1_articles.xlsx")
+df.to_excel(OUTPUT_DATA_DIR)
